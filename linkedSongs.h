@@ -1,4 +1,11 @@
-struct node * insert_front(struct node *pointer, int number);
+
+struct node{
+  char name[100];
+  char artist[100];
+  struct node *next;
+};
+
+struct node * insert_front(struct node *pointer, char *name, char *artist);
 void print_list(struct node *pointer);
 struct node * free_list(struct node *pointer);
-struct node * remove_node(struct node *front, int data);
+struct node * remove_node(struct node *front, char *name, char *artist);
