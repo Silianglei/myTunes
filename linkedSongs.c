@@ -3,6 +3,50 @@
 #include "linkedSongs.h"
 #include <time.h>
 
+
+int compare(struct node * song1, struct node * song2){
+  if (strcmp(song1->artist, song2->artist) > 0){return 1;}
+  else if (strcmp(song1->artist, song2->artist) < 0) {return 0;}
+  else{
+    return strcmp(song1->name,song2->name);
+  }
+}
+
+void insert(struct node *pointer, char *name, char *artist){
+  struct node * prev = pointer;
+  struct node * temp = pointer->next;
+  struct node * toInsert;
+  toInsert->name = name;
+  toInsret->artist = artist;
+  if (compare(toInsert, prev) < 0) {toInsert->next = prev;}
+  while(compare(toInsert, temp) > 0) {
+    temp = temp->next;
+    prev = prev->next;
+  }
+  prev->next = toInsert;
+  toInsert->next = temp;
+
+}
+
+struct node * find(struct node * pointer, char *name, char *artist){
+  struct * temp = pointer;
+  struct node * toFind;
+  toFind->name = name;
+  toFind->artist = artist;
+  while(compare(toFind,pointer) != 0 && temp != NULL){
+    temp = temp->next
+  }
+  if (temp != NULL){
+    return temp;
+  }
+  return NULL;
+}
+
+struct node * find(struct node * pointer, char *artist){
+  struct * temp = pointer;
+  struct node * toFind;
+  toFind->artist = artist;
+}
 struct node * insert_front(struct node *pointer, char *name, char *artist){
   struct node *begin = malloc(sizeof(struct node));
   begin -> name = name;
