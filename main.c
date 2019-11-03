@@ -38,4 +38,7 @@ int main(){
 
   print_list(anode);
   printf("====================================\n\n");
+
+  struct node * table[27];
+  struct node * musicLibrary = table;
 }
