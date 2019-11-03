@@ -16,8 +16,8 @@ void insert(struct node *pointer, char *name, char *artist){
   struct node * prev = pointer;
   struct node * temp = pointer->next;
   struct node * toInsert;
-  toInsert->name = name;
-  toInsret->artist = artist;
+  strcpy(toInsert->name, name);
+  strcpy(toInsert->artist, artist);
   if (compare(toInsert, prev) < 0) {toInsert->next = prev;}
   while(compare(toInsert, temp) > 0) {
     temp = temp->next;
@@ -29,12 +29,12 @@ void insert(struct node *pointer, char *name, char *artist){
 }
 
 struct node * find(struct node * pointer, char *name, char *artist){
-  struct * temp = pointer;
+  struct node * temp = pointer;
   struct node * toFind;
-  toFind->name = name;
-  toFind->artist = artist;
+  strcpy(toFind->name, name);
+  strcpy(toFind->artist, artist);
   while(compare(toFind,pointer) != 0 && temp != NULL){
-    temp = temp->next
+    temp = temp->next;
   }
   if (temp != NULL){
     return temp;
@@ -42,15 +42,16 @@ struct node * find(struct node * pointer, char *name, char *artist){
   return NULL;
 }
 
-struct node * find(struct node * pointer, char *artist){
-  struct * temp = pointer;
+struct node * find2(struct node * pointer, char *artist){
+  struct node * temp = pointer;
   struct node * toFind;
-  toFind->artist = artist;
+  return temp; // will fix
 }
+
 struct node * insert_front(struct node *pointer, char *name, char *artist){
   struct node *begin = malloc(sizeof(struct node));
-  begin -> name = name;
-  begin -> artist = artist;
+  strcpy(begin -> name, name);
+  strcpy(begin -> artist, artist);
   begin -> next = pointer;
   return begin;
 }
@@ -75,7 +76,7 @@ void print_list(struct node *pointer) {
 struct node * free_list(struct node *pointer) {
   struct node *slider = pointer;
   while(slider != NULL) {
-    printf("\nfreeing node: %d", pointer -> i);
+    printf("\nfreeing node: '%s' by %s", pointer->name, pointer->artist);
     slider = slider->next;
     free(slider);
     pointer = slider;
@@ -84,7 +85,8 @@ struct node * free_list(struct node *pointer) {
 }
 
 struct node * randomNode(struct node *pointer){
-  int size;
+  int size = 0;
+  int a = 0;
   struct node *temp = pointer;
   while(temp != NULL){
     temp = temp -> next;

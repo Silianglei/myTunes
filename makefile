@@ -1,5 +1,5 @@
 all: main.o musicLibrary.o linkedSongs.o
-	gcc -o program main.o functions.o
+	gcc -o program main.o musicLibrary.o linkedSongs.o
 
 main.o: main.c musicLibrary.h linkedSongs.h
 	gcc -c main.c
