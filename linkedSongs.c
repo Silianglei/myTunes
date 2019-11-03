@@ -12,6 +12,14 @@ int compare(struct node * song1, struct node * song2){
   }
 }
 
+struct node * insert_front(struct node *pointer, char *name, char *artist){
+  struct node *begin = malloc(sizeof(struct node));
+  strcpy(begin -> name, name);
+  strcpy(begin -> artist, artist);
+  begin -> next = pointer;
+  return begin;
+}
+
 void insert(struct node *pointer, char *name, char *artist){
   struct node * prev = pointer;
   struct node * temp = pointer->next;
@@ -25,7 +33,23 @@ void insert(struct node *pointer, char *name, char *artist){
   }
   prev->next = toInsert;
   toInsert->next = temp;
+}
 
+void print_list(struct node *pointer) {
+  if (pointer == NULL) {
+    printf("[]\n");
+  }
+  else {
+    printf("[");
+    while(pointer != NULL){
+      printf("'%s' by %s", pointer->name, pointer->artist);
+      if (pointer -> next != NULL){
+        printf(", ");
+      }
+      pointer = pointer->next;
+    };
+    printf("]");
+  }
 }
 
 struct node * find(struct node * pointer, char *name, char *artist){
@@ -46,42 +70,6 @@ struct node * find2(struct node * pointer, char *artist){
   struct node * temp = pointer;
   struct node * toFind;
   return temp; // will fix
-}
-
-struct node * insert_front(struct node *pointer, char *name, char *artist){
-  struct node *begin = malloc(sizeof(struct node));
-  strcpy(begin -> name, name);
-  strcpy(begin -> artist, artist);
-  begin -> next = pointer;
-  return begin;
-}
-
-void print_list(struct node *pointer) {
-  if (pointer == NULL) {
-    printf("[]\n");
-  }
-  else {
-    printf("[");
-    while(pointer != NULL){
-      printf("'%s' by %s", pointer->name, pointer->artist);
-      if (pointer -> next != NULL){
-        printf(", ");
-      }
-      pointer = pointer->next;
-    };
-    printf("]");
-  }
-}
-
-struct node * free_list(struct node *pointer) {
-  struct node *slider = pointer;
-  while(slider != NULL) {
-    printf("\nfreeing node: '%s' by %s", pointer->name, pointer->artist);
-    slider = slider->next;
-    free(slider);
-    pointer = slider;
-  }
-  return pointer;
 }
 
 struct node * randomNode(struct node *pointer){
@@ -117,4 +105,15 @@ struct node * remove_node(struct node *front, char *name, char *artist){
     slider = slider -> next;
   }
   return front;
+}
+
+struct node * free_list(struct node *pointer) {
+  struct node *slider = pointer;
+  while(slider != NULL) {
+    printf("\nfreeing node: '%s' by %s", pointer->name, pointer->artist);
+    slider = slider->next;
+    free(slider);
+    pointer = slider;
+  }
+  return pointer;
 }
