@@ -54,3 +54,7 @@ struct node * artistsongSearch(struct node * musicLibrary, char *name, char *art
   struct node *songNode = find(LinkedList, name, artist);
   return songNode;
 }
+
+void printArtist(struct node * musicLibrary, char *artist){
+  print_list(artistSearch(musicLibrary, artist));
+}
