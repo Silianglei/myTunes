@@ -48,3 +48,9 @@ struct node * artistSearch(struct node * musicLibrary, char *artist){
   struct node *firstSongofArtist = find2(LinkedList, artist);
   return firstSongofArtist;
 }
+
+struct node * artistsongSearch(struct node * musicLibrary, char *name, char *artist){
+  struct node * LinkedList = findLinkedList(musicLibrary, artist);
+  struct node *songNode = find(LinkedList, name, artist);
+  return songNode;
+}
