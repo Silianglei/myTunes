@@ -13,26 +13,32 @@ int compare(struct node * song1, struct node * song2){
 }
 
 struct node * insert_front(struct node *pointer, char *name, char *artist){
-  struct node *begin = malloc(sizeof(struct node));
+  struct node * begin = malloc(sizeof(struct node));
   strcpy(begin -> name, name);
   strcpy(begin -> artist, artist);
   begin -> next = pointer;
   return begin;
 }
 
-void insert(struct node *pointer, char *name, char *artist){
+struct node * insert_order(struct node *pointer, char *name, char *artist){
+  if (pointer == NULL) {return insert_front(pointer, name, artist);}
+
   struct node * prev = pointer;
   struct node * temp = pointer->next;
-  struct node * toInsert;
+  struct node * toInsert = malloc(sizeof(struct node));
   strcpy(toInsert->name, name);
   strcpy(toInsert->artist, artist);
-  if (compare(toInsert, prev) < 0) {toInsert->next = prev;}
-  while(compare(toInsert, temp) > 0) {
+  if (compare(toInsert, prev) < 0) {
+    toInsert->next = prev;
+    return toInsert;
+  }
+  while(temp != NULL && compare(toInsert, temp) > 0) {
     temp = temp->next;
     prev = prev->next;
   }
   prev->next = toInsert;
   toInsert->next = temp;
+  return pointer;
 }
 
 void print_list(struct node *pointer) {

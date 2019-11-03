@@ -7,7 +7,7 @@ struct node{
 
 struct node * insert_front(struct node *pointer, char *name, char *artist);
 
-void insert(struct node *pointer, char *name, char *artist);
+struct node * insert_order(struct node *pointer, char *name, char *artist);
 
 void print_list(struct node *pointer);
 
