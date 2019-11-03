@@ -42,3 +42,9 @@ void printLetter(struct node * musicLibrary, char *letter){
   struct node * LinkedList = findLinkedList(musicLibrary, letter);
   void print_list(LinkedList);
 }
+
+struct node * artistSearch(struct node * musicLibrary, char *artist){
+  struct node * LinkedList = findLinkedList(musicLibrary, artist);
+  struct node *firstSongofArtist = find2(LinkedList, artist);
+  return firstSongofArtist;
+}
