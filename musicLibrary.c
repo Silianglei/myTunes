@@ -35,10 +35,10 @@ struct node * findLinkedList(struct node * musicLibrary, char *artist){
 
 void addNode(struct node * musicLibrary, char *name, char *artist){
   struct node * LinkedList = findLinkedList(struct node * musicLibrary, char *artist);
-  struct node * insert_order(struct node *LinkedList, char *name, char *artist)
+  struct node * insert_order(struct node *LinkedList, char *name, char *artist);
 }
 
-void printLetter(struct node * musicLibrary){
+void printLetter(struct node * musicLibrary, char *artist){
   struct node * LinkedList = findLinkedList(struct node * musicLibrary, char *artist);
   void print_list(LinkedList);
 }
