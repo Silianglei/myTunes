@@ -6,7 +6,7 @@
 
 int compare(struct node * song1, struct node * song2){
   if (strcmp(song1->artist, song2->artist) > 0){return 1;}
-  else if (strcmp(song1->artist, song2->artist) < 0) {return 0;}
+  else if (strcmp(song1->artist, song2->artist) < 0) {return -1;}
   else{
     return strcmp(song1->name,song2->name);
   }
@@ -42,13 +42,13 @@ void print_list(struct node *pointer) {
   else {
     printf("[");
     while(pointer != NULL){
-      printf("'%s' by %s", pointer->name, pointer->artist);
+      printf("%s: %s", pointer->artist, pointer->name);
       if (pointer -> next != NULL){
         printf(", ");
       }
       pointer = pointer->next;
     };
-    printf("]");
+    printf("]\n");
   }
 }
 
@@ -110,7 +110,7 @@ struct node * remove_node(struct node *front, char *name, char *artist){
 struct node * free_list(struct node *pointer) {
   struct node *slider = pointer;
   while(slider != NULL) {
-    printf("\nfreeing node: '%s' by %s", pointer->name, pointer->artist);
+    printf("freeing node: [%s: %s]\n", pointer->artist, pointer->name);
     slider = slider->next;
     free(slider);
     pointer = slider;
