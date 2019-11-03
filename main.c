@@ -32,6 +32,9 @@ int main(){
   anode = insert_order(anode, "lose yourself", "eminem");
   anode = insert_order(anode, "god's plan", "drake");
   anode = insert_order(anode, "in my feelings", "drake");
+  anode = insert_order(anode, "the real slim shady", "eminem");
+  anode = insert_order(anode, "hotline bling", "drake");
+  anode = insert_order(anode, "single ladies", "beyonce");
 
   print_list(anode);
   printf("====================================\n\n");
