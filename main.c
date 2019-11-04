@@ -111,4 +111,6 @@ int main(){
     table[index]=NULL;
   }
   printLibrary(table);
+  addNode(table, "street spirit", "radiohead");
+  printLibrary(table);
 }

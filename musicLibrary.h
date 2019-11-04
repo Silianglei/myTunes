@@ -3,7 +3,7 @@
 
 struct node * findLinkedList(struct node * musiclibrary[], char * artist);
 
-void addNode(struct node * musiclibrary, char * name, char * artist);
+void addNode(struct node ** musiclibrary, char * name, char * artist);
 
 void printLetter(struct node * musiclibrary, char * letter);
 

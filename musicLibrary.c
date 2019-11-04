@@ -33,9 +33,11 @@ struct node * findLinkedList(struct node * musiclibrary[], char * artist){
   else return musiclibrary[26];
 }
 
-void addNode(struct node * musiclibrary, char * name, char * artist){
-  struct node * LinkedList = findLinkedList(musiclibrary, artist);
-  insert_order(LinkedList, name, artist);
+void addNode(struct node ** musiclibrary, char * name, char * artist){
+  char first = artist[0];
+  int i = first - 97;
+  if (i < 0 || i > 26) {i = 26;}
+  musiclibrary[i] = insert_order(musiclibrary[i], name, artist);
 }
 
 void printLetter(struct node * musiclibrary, char * letter){
@@ -65,7 +67,6 @@ void printLibrary(struct node **musiclibrary){
     if (i < 26) {printf("%c: ", i + 97);}
     else{printf("Others: ");}
     print_list(musiclibrary[i]);
-    printf("\n");
     i++;
   }
 }
