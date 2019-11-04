@@ -3,7 +3,7 @@
 #include "linkedSongs.h"
 #include "musiclibrary.h"
 
-struct node * findLinkedList(struct node * musiclibrary, char * artist){
+struct node * findLinkedList(struct node musiclibrary[], char * artist){
   if (artist[0] == "a") return musiclibrary[1];
   if (artist[0] == "b") return musiclibrary[1];
   if (artist[0] == "c") return musiclibrary[2];
