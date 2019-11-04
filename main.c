@@ -110,24 +110,44 @@ int main(){
   for(index = 0; index<27; index++ ){
     table[index]=NULL;
   }
+
+
+  printf("\nPrinting Empty Library...\n");
   printLibrary(table);
+
+  printf("\nAdding Songs...\n");
   addNode(table, "street spirit", "radiohead");
   addNode(table, "thunderstruck", "ac/dc");
   addNode(table, "lose yourself", "eminem");
+  addNode(table, "without me", "eminem");
+  addNode(table, "stan", "eminem");
   addNode(table, "god's plan", "drake");
   addNode(table, "in my feelings", "drake");
   printLibrary(table);
 
+  printf("\nAll songs by Artists starting in 'd'\n");
   printLetter(table, 'd');
 
-  printArtist(table, "drake");
+  printf("\nRemoving 'in my feelings' by drake...\n");
+  removeNode(table, "in my feelings", "drake");
+  printLibrary(table);
+
+  printf("\nAll songs by Eminem: ");
+  printArtist(table, "eminem");
+
+  printf("\nFinding thunderstruck by ac/dc ....");
+  printNode(artistsongSearch(table, "thunderstruck","ac/dc"));
   printf("\n");
-  printNode(artistsongSearch(table, "lose yourself", "eminem"));
-  printf("\n");
+
+  printf("\nPrinting two random songs: ");
+  shuffle(table, 2);
+
+
+  printf("\n\nClearing Library...\n");
   clearLibrary(table);
   printLibrary(table);
   printf("\n");
-  shuffle(table, 2);
+
 
 
 }
