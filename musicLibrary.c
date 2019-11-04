@@ -32,8 +32,39 @@ struct node * artistsongSearch(struct node ** musiclibrary, char * name, char * 
   return songNode;
 }
 
+void clearLibrary(struct node ** musiclibrary){
+  int i = 0;
+  while(i < 27){
+    free_list(musiclibrary[i]);
+    i++;
+  }
+}
+
 void printArtist(struct node ** musiclibrary, char * artist){
-  print_list(artistSearch(musiclibrary, artist));
+  struct node * currentNode = artistSearch(musiclibrary, artist);
+  while(currentNode->artist == artist){
+    printNode(currentNode);
+    currentNode = currentNode->next;
+  }
+}
+
+void shuffle(struct node **musicLibrary, int songs){
+  int index = 0;
+  struct node *allSongs = NULL;
+  for(index = 0; index < 27; index++){
+    struct node * song = musicLibrary[index];
+    while(song != NULL){
+      allSongs = insert_front(allSongs, song->name, song->artist);
+      song = song->next;
+    }
+  }
+
+  while(songs > 0) {
+    struct node * randomSong = randomNode(allSongs);
+    printNode(randomSong);
+    remove_node(allSongs, randomSong->name, randomSong->artist);
+    songs--;
+  }
 }
 
 void printLibrary(struct node **musiclibrary){

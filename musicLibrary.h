@@ -13,3 +13,5 @@ struct node * artistsongSearch(struct node ** musicLibrary, char * name, char * 
 void printArtist(struct node ** musicLibrary, char * artist);
 
 void printLibrary(struct node **musicLibrary);
+
+void clearLibrary(struct node ** musiclibrary);

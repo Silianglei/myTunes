@@ -120,5 +120,14 @@ int main(){
 
   printLetter(table, 'd');
 
-  printNode(artistSearch(table, "drake"));
+  printArtist(table, "drake");
+  printf("\n");
+  printNode(artistsongSearch(table, "lose yourself", "eminem"));
+  printf("\n");
+  clearLibrary(table);
+  printLibrary(table);
+  printf("\n");
+  shuffle(table, 2);
+
+
 }
