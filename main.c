@@ -112,5 +112,13 @@ int main(){
   }
   printLibrary(table);
   addNode(table, "street spirit", "radiohead");
+  addNode(table, "thunderstruck", "ac/dc");
+  addNode(table, "lose yourself", "eminem");
+  addNode(table, "god's plan", "drake");
+  addNode(table, "in my feelings", "drake");
   printLibrary(table);
+
+  printLetter(table, 'd');
+
+  printNode(artistSearch(table, "drake"));
 }

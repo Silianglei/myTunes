@@ -12,6 +12,10 @@ int compare(struct node * song1, struct node * song2){
   }
 }
 
+void printNode(struct node * song){
+  printf("%s by %s", song->name, song->artist);
+}
+
 struct node * insert_front(struct node *pointer, char *name, char *artist){
   struct node * begin = malloc(sizeof(struct node));
   strcpy(begin -> name, name);
