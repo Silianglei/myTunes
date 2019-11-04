@@ -10,3 +10,5 @@ struct node * artistSearch(struct node * musicLibrary, char *artist);
 struct node * artistsongSearch(struct node * musicLibrary, char *name, char *artist);
 
 void printArtist(struct node * musicLibrary, char *artist);
+
+void printLibrary(struct node * musicLibrary);

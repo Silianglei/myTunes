@@ -58,3 +58,12 @@ struct node * artistsongSearch(struct node * musicLibrary, char *name, char *art
 void printArtist(struct node * musicLibrary, char *artist){
   print_list(artistSearch(musicLibrary, artist));
 }
+
+void printLibrary(struct node * musicLibrary){
+  int i = 0
+  while(i < 27){
+    print_list(musicLibrary[i]);
+    printf("\n");
+    i++;
+  }
+}
