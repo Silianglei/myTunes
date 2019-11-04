@@ -86,7 +86,7 @@ int main(){
   free(someArtist3);
 
   printf("====================================\n\n");
-  printf("Testing randomNode(Run multiple times to see randomness): \n\n");
+  printf("Testing randomNode (Run multiple times to see randomness): \n\n");
 
   struct node * song1 = randomNode(anode);
   printf("Randomly chosen song... %s: %s\n", song1->artist, song1->name);
