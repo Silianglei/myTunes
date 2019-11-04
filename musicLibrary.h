@@ -1,14 +1,18 @@
 
-struct node * findLinkedList(struct node * musicLibrary, char *artist);
+struct musiclibrary{
+  struct node library[27];
+};
 
-void addNode(struct node * musicLibrary, char *name, char *artist);
+struct node * findLinkedList(struct node * musiclibrary, char * artist);
 
-void printLetter(struct node * musicLibrary, char *letter);
+void addNode(struct node * musiclibrary, char * name, char * artist);
 
-struct node * artistSearch(struct node * musicLibrary, char *artist);
+void printLetter(struct node * musiclibrary, char * letter);
 
-struct node * artistsongSearch(struct node * musicLibrary, char *name, char *artist);
+struct node * artistSearch(struct node * musiclibrary, char * artist);
 
-void printArtist(struct node * musicLibrary, char *artist);
+struct node * artistsongSearch(struct node * musicLibrary, char * name, char * artist);
+
+void printArtist(struct node * musicLibrary, char * artist);
 
 void printLibrary(struct node * musicLibrary);

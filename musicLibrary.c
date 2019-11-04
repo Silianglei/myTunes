@@ -3,8 +3,8 @@
 #include "linkedSongs.h"
 #include "musiclibrary.h"
 
-struct node * findLinkedList(struct node * musiclibrary, char *artist){
-  if (artist[0] == "a") return musiclibrary[0];
+struct node * findLinkedList(struct node * musiclibrary, char * artist){
+  if (artist[0] == "a") return musiclibrary[1];
   if (artist[0] == "b") return musiclibrary[1];
   if (artist[0] == "c") return musiclibrary[2];
   if (artist[0] == "d") return musiclibrary[3];
@@ -33,29 +33,29 @@ struct node * findLinkedList(struct node * musiclibrary, char *artist){
   else return musiclibrary[26];
 }
 
-void addNode(struct node * musiclibrary, char *name, char *artist){
+void addNode(struct node * musiclibrary, char * name, char * artist){
   struct node * LinkedList = findLinkedList(musiclibrary, artist);
   struct node * insert_order(LinkedList, name, artist);
 }
 
-void printLetter(struct node * musiclibrary, char *letter){
+void printLetter(struct node * musiclibrary, char * letter){
   struct node * LinkedList = findLinkedList(musiclibrary, letter);
   void print_list(LinkedList);
 }
 
-struct node * artistSearch(struct node * musiclibrary, char *artist){
+struct node * artistSearch(struct node * musiclibrary, char * artist){
   struct node * LinkedList = findLinkedList(musiclibrary, artist);
   struct node *firstSongofArtist = find2(LinkedList, artist);
   return firstSongofArtist;
 }
 
-struct node * artistsongSearch(struct node * musiclibrary, char *name, char *artist){
+struct node * artistsongSearch(struct node * musiclibrary, char * name, char * artist){
   struct node * LinkedList = findLinkedList(musiclibrary, artist);
   struct node *songNode = find(LinkedList, name, artist);
   return songNode;
 }
 
-void printArtist(struct node * musiclibrary, char *artist){
+void printArtist(struct node * musiclibrary, char * artist){
   print_list(artistSearch(musiclibrary, artist));
 }
 
