@@ -59,10 +59,12 @@ void printArtist(struct node * musiclibrary, char * artist){
   print_list(artistSearch(musiclibrary, artist));
 }
 
-void printLibrary(struct node * musiclibrary){
+void printLibrary(struct node **musiclibrary){
   int i = 0;
   while(i < 27){
-    print_list(&musiclibrary[i]);
+    if (i < 26) {printf("%c: ", i + 97);}
+    else{printf("Others: ");}
+    print_list(musiclibrary[i]);
     printf("\n");
     i++;
   }

@@ -105,6 +105,10 @@ int main(){
   printf("MUSIC LIBRARY TESTS\n\n====================================\n\n");
 
 
-  //struct node * table[27];
-  //struct node * musicLibrary = table;
+  struct node * table[27];
+  int index;
+  for(index = 0; index<27; index++ ){
+    table[index]=NULL;
+  }
+  printLibrary(table);
 }
