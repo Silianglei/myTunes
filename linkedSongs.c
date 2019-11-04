@@ -79,7 +79,7 @@ struct node * find_artist(struct node * pointer, char *artist){
 
 struct node * randomNode(struct node *pointer){
   int size = 0;
-  int a = 0;
+  int a;
   struct node *temp = pointer;
   while(temp != NULL){
     temp = temp -> next;
@@ -94,21 +94,28 @@ struct node * randomNode(struct node *pointer){
   return pointer;
 }
 
-struct node * remove_node(struct node *front, char *name, char *artist){
-  if(front == NULL) return front;
-  struct node * slider = front;
-  struct node * slider_before = NULL;
-  while(slider != NULL){
-    if(slider->name == name && slider-> artist == artist){
-      struct node * temp = slider;
-      if(slider_before == NULL) front = front -> next;
-      else slider_before->next = temp->next;
-      free(temp);
-      temp = NULL;
-    }
-    slider_before = slider;
-    slider = slider -> next;
+struct node * remove_node(struct node *front, char *name, char *artist) {
+  if (front == NULL) {return front;}
+
+  struct node *previous = front;
+  struct node *current = front->next;
+  if(strcmp(front->name, name) == 0 && strcmp(front->artist, artist) == 0) {
+    free(front);
+    front = NULL;
+    return current;
   }
+
+  while(current != NULL){
+    if(strcmp(current->name, name) == 0 && strcmp(current->artist, artist) == 0) {
+      previous->next = current->next;
+      free(current);
+      current = NULL;
+      return front;
+    }
+    previous = current;
+    current = current->next;
+  }
+  printf("Song not found\n");
   return front;
 }
 
