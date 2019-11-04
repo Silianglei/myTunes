@@ -1,7 +1,5 @@
 
-struct musiclibrary{
-  struct node library[27];
-};
+
 
 struct node * findLinkedList(struct node * musiclibrary, char * artist);
 
