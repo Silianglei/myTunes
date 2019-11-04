@@ -58,24 +58,23 @@ void print_list(struct node *pointer) {
   }
 }
 
-struct node * find(struct node * pointer, char *name, char *artist){
+struct node * find_node(struct node * pointer, char *name, char *artist){
   struct node * temp = pointer;
-  struct node * toFind;
+  struct node * toFind = malloc(sizeof(struct node));
   strcpy(toFind->name, name);
   strcpy(toFind->artist, artist);
-  while(compare(toFind,pointer) != 0 && temp != NULL){
+  while(temp != NULL && compare(toFind, temp) != 0){
     temp = temp->next;
   }
-  if (temp != NULL){
-    return temp;
-  }
-  return NULL;
+  return temp;
 }
 
-struct node * find2(struct node * pointer, char *artist){
+struct node * find_artist(struct node * pointer, char *artist){
   struct node * temp = pointer;
-  struct node * toFind;
-  return temp; // will fix
+  while(temp != NULL && strcmp(artist, temp->artist) != 0){
+    temp = temp->next;
+  }
+  return temp;
 }
 
 struct node * randomNode(struct node *pointer){
