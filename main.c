@@ -4,7 +4,7 @@
 #include "linkedSongs.h"
 
 int main(){
-  printf("LINKED LIST TESTS\n====================================\n\n");
+  printf("\n\nLINKED LIST TESTS\n====================================\n\n");
 
   struct node *anode = NULL;
   printf("Printing empty list:\n");
@@ -84,6 +84,25 @@ int main(){
   if (someArtist3 != NULL){printf("Found it: "); print_list(someArtist3); printf("\n");}
   else {printf("Artist not found\n\n");}
   free(someArtist3);
+
+  printf("====================================\n\n");
+  printf("Testing randomNode(Run multiple times to see randomness): \n\n");
+
+  struct node * song1 = randomNode(anode);
+  printf("Randomly chosen song... %s: %s\n", song1->artist, song1->name);
+  printf("====================================\n\n");
+  printf("Testing remove_node: \n\n");
+  printf("Removing [eminem: lose yourself]\n");
+  anode = remove_node(anode, "lose yourself","eminem");
+  printf("Removing [ac/dc: thunderstruck]\n");
+  anode = remove_node(anode, "thunderstruck","ac/dc");
+  printf("Removing [kanye: stronger]\n");
+  anode = remove_node(anode, "stronger", "kanye");
+
+  printf("\nOur new list is:\n");
+  print_list(anode);
+  printf("====================================\n\n");
+  printf("MUSIC LIBRARY TESTS\n\n====================================\n\n");
 
 
   //struct node * table[27];
