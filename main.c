@@ -39,7 +39,7 @@ int main(){
 
 
   printf("Testing find_node:\n");
-  printf("Looking for [eminem: teh real slim shady]\n");
+  printf("Looking for [eminem: the real slim shady]\n");
   struct node *someNode = malloc(sizeof(struct node));
   someNode = find_node(anode, "the real slim shady", "eminem");
   if (someNode != NULL){printf("Found it: "); print_list(someNode); printf("\n");}

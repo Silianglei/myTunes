@@ -1,7 +1,7 @@
 
 
 
-struct node * findLinkedList(struct node musiclibrary[], char * artist);
+struct node * findLinkedList(struct node * musiclibrary[], char * artist);
 
 void addNode(struct node * musiclibrary, char * name, char * artist);
 

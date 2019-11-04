@@ -11,7 +11,9 @@ struct node * insert_order(struct node *pointer, char *name, char *artist);
 
 void print_list(struct node *pointer);
 
-struct node * find(struct node * pointer, char *name, char *artist);
+struct node * find_node(struct node * pointer, char *name, char *artist);
+
+struct node * find_artist(struct node * pointer, char *artist);
 
 struct node * randomNode(struct node *pointer);
 
